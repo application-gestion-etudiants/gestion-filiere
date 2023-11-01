@@ -1,0 +1,176 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Mon API de gestion de filière",
+    "description": "API pour gérer les filières, modules et matières",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/filiere": {
+      "get": {
+        "summary": "Récupérer la liste des filières",
+        "responses": {
+          "200": {
+            "description": "Liste des filières récupérée avec succès",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 1,
+                    "nom": "Informatique"
+                  },
+                  {
+                    "id": 2,
+                    "nom": "Économie"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Créer une nouvelle filière",
+        "requestBody": {
+          "description": "Nouvelle filière à créer",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filiere"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Filière créée avec succès"
+          }
+        }
+      }
+    },
+    "/module": {
+      "get": {
+        "summary": "Récupérer la liste des modules",
+        "responses": {
+          "200": {
+            "description": "Liste des modules récupérée avec succès",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 1,
+                    "nom": "Programmation avancée"
+                  },
+                  {
+                    "id": 2,
+                    "nom": "Microéconomie"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Créer un nouveau module",
+        "requestBody": {
+          "description": "Nouveau module à créer",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Module"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Module créé avec succès"
+          }
+        }
+      }
+    },
+    "/matiere": {
+      "get": {
+        "summary": "Récupérer la liste des matières",
+        "responses": {
+          "200": {
+            "description": "Liste des matières récupérée avec succès",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 1,
+                    "nom": "Algorithmes"
+                  },
+                  {
+                    "id": 2,
+                    "nom": "Macroéconomie"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Créer une nouvelle matière",
+        "requestBody": {
+          "description": "Nouvelle matière à créer",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Matiere"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Matière créée avec succès"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Filiere": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nom": {
+            "type": "string"
+          }
+        }
+      },
+      "Module": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nom": {
+            "type": "string"
+          }
+        }
+      },
+      "Matiere": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nom": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
